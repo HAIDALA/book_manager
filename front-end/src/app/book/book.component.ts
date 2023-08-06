@@ -4,6 +4,7 @@ import { BookService } from '../book.service';
 import { Book } from '../models/models.type';
 import {DatePipe} from "@angular/common";
 
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -26,11 +27,11 @@ export class BookComponent implements OnInit {
   }
 
   getBook() {
-    const ID = this.route.snapshot.paramMap.get('id');
-    if (ID) {
-      this.bookService.getBookById(ID).subscribe(
+    const bookId = this.route.snapshot.paramMap.get('id');
+    if (bookId) {
+      this.bookService.getBookById(bookId).subscribe(
         (res) => {
-          this.book = {...res, id: ID}
+          this.book = {...res, id: bookId}
           this.formatDate();
         }
       );

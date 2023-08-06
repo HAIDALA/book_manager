@@ -10,7 +10,7 @@ import {DatePipe} from "@angular/common";
 })
 
 export class BookListComponent implements OnInit {
-  books: Book[] = [];
+  public books: Book[] = [];
   searchQuery: string = '';
   displaySearchButton = true;
   sortOption = "date";

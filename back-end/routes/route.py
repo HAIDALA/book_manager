@@ -1,22 +1,26 @@
 from fastapi import APIRouter
-from models.books import Book, GetBooksResponse
+from models.books import Book
 from config.database import collection_name
 from schema.schemas import list_serial
 from bson import ObjectId
 from datetime import datetime
+from typing import List
+
 
 router = APIRouter()
 
 
 @router.get("/")
-def get_books() -> GetBooksResponse:
-  books = list_serial(collection_name.find())
-  return books
+def get_books() -> List[Book]:
+    books = list_serial(collection_name.find())
+    return books
+
+
 
 @router.get("/book/{id}") 
 def get_book(id: str) -> Book:
     book = collection_name.find_one({"_id": ObjectId(id)})
-    return Book(**book)
+    return Book(**book) 
 
 
 @router.post("/book/")
@@ -27,7 +31,7 @@ def post_books():
     author = "New author",
     description = "Edit to enter description",
     last_modification_date = last_modification_date
-  )
+  ).dict(by_alias=True)
   collection_name.insert_one(dict(new_book))
 
 @router.patch("/book/{id}")

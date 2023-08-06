@@ -1,0 +1,13 @@
+version: "3"
+services:
+  backend:
+    image: backend-image
+    ports:
+      - "8000:8000"
+    restart: always
+
+  frontend:
+    image: frontend-image
+    ports:
+      - "4200:4200"
+    restart: always

@@ -3,7 +3,7 @@
   <div class="button-container">
     <div class="add-book">
       <span class="material-icons" (click)="addBook()">
-      add_circle_outline
+        add_circle_outline
       </span>
     </div>
     <div class="search-container">
@@ -43,24 +43,27 @@
   <div *ngIf="books.length === 0" class="empty-book-element">
     No book available, please add a book
   </div>
-  <ng-container *ngIf="filteredBooks.length === 0 && books.length > 0; else bookList">
+  <div *ngIf="filteredBooks.length === 0 && books.length > 0; else bookList">
     <div class="empty-book-element">
       No books matched your search
     </div>
-  </ng-container>
+  </div>
   <ng-template #bookList>
-    <div
-      *ngFor="let book of filteredBooks"
-      class="book-element"
-    >
-      <div class="book-last-modification-date">
-        Last date modification: {{ book.last_modification_date}}
-      </div>
-      <h2 class="book-title" [routerLink]="'book/' + book.id">
-        {{ book.title }}
-      </h2>
-      <div class="book-author">
-        {{ book.author }}
+    <div *ngIf="filteredBooks.length > 0">
+      <div
+        *ngFor="let book of filteredBooks"
+        [routerLink]="'book/' + book.id"
+        class="book-element"
+      >
+        <div class="book-last-modification-date">
+          Last date modification: {{ book.last_modification_date }}
+        </div>
+        <h2 class="book-title">
+          {{ book.title }}
+        </h2>
+        <div class="book-author">
+          {{ book.author }}
+        </div>
       </div>
     </div>
   </ng-template>
