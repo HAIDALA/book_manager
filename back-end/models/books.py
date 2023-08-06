@@ -23,7 +23,7 @@ def generate_object_id() -> PyObjectId:
     return PyObjectId()
 
 class Book(BaseModel):
-    id: PyObjectId = Field(default_factory=generate_object_id, alias="_id")
+    #id: PyObjectId = Field(default_factory=generate_object_id, alias="_id")
     title: str
     author: str
     description: str
