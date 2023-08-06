@@ -14,7 +14,7 @@ start by cloning the project from GitHub:
 
 ```git clone https://github.com/HAIDALA/book_manager.git```
 
-## How to Run the app using docker (Best choice if you know docker!):
+# How to Run the app using docker (Best choice if you know docker!):
 
 Prerequisites:
 - Docker: https://docs.docker.com/get-docker/
