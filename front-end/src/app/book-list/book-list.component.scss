@@ -1,0 +1,160 @@
+.app-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 70px;
+  font-weight: bold;
+  margin-top: 50px;
+
+}
+
+.books-container {
+  width: 80%;
+  padding-top: 3vh;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+
+  .empty-book-element {
+    height: 120px;
+    background: #FCFCFC;
+    border: 1px solid #9d9d9d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    color: #9d9d9d;
+    font-size: 18px;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 10px 0 10px 10px;
+    vertical-align: middle;
+
+    .search-container {
+      display: flex;
+      flex-direction: row;
+
+      .close-button {
+        font-size: 40px;
+      }
+
+      .search-bar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+      }
+
+      .material-icons:hover {
+        transform: scale(1.2);
+      }
+
+    }
+
+    .add-book {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 9px;
+    }
+
+    .sort-container {
+      position: relative;
+
+      .dropbtn {
+        background-color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+
+        .material-icons {
+          vertical-align: middle;
+        }
+
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      .dropdown-content a {
+        padding: 12px 16px;
+        display: block;
+        cursor: pointer;
+      }
+
+      .dropdown-content a.active {
+        font-weight: bold;
+      }
+    }
+
+    .sort-container .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+
+    .material-icons {
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+  }
+
+
+  .book-element {
+    height: 120px;
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: row;
+
+  }
+
+
+  .book-last-modification-date {
+    flex: 4;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 10px;
+    font-weight: bold;
+  }
+
+  .book-title {
+    flex: 6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .book-author {
+    flex: 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 10px;
+    font-weight: bold;
+  }
+}
+
+.add-book:hover, .swap-icon:hover, .book-title:hover {
+  transform: scale(1.2);
+}
+
+
+
+
+

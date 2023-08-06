@@ -1,0 +1,69 @@
+<div *ngIf="!editMode" class="books-container">
+  <div class="top-container">
+    <div class="top-image">
+          <span class="material-icons">
+              book
+          </span>
+    </div>
+    <div class="top-right">
+      <div *ngIf="book" class="title-author">
+        "{{ book.title }}" created by {{book.author}}
+      </div>
+      <div *ngIf="book && book.last_modification_date" class="date">
+        Last date modification {{book.last_modification_date}}
+      </div>
+    </div>
+  </div>
+  <div *ngIf="book && book.description" class="description">
+    <span>Description: </span>  {{ book.description }}
+  </div>
+  <div *ngIf="!editMode" class="edit-delete">
+    <button (click)="enableEditMode()">Edit</button>
+    <div class="delete-button">
+      <button (click)="switchToDelete()" *ngIf="!deleting">Delete</button>
+    </div>
+    <div *ngIf="deleting" class="book-panel-deleting">
+      <p *ngIf="book && book.title">
+        Are you sure you want to delete "{{book.title}}"
+      </p>
+      <p class="buttons">
+        <button
+          (click)="cancelDeleting()"
+        >
+          Cancel
+        </button>
+        <button [ngStyle]="{'backgroundColor':'red'}"
+                (click)="deleteBook()"
+        >
+          Delete
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+<div *ngIf="editMode" class="books-container">
+  <div class="top-container" [ngStyle]="{'justify-content': 'center'}">
+    <div class="edit-book">
+      <div class="edit-book-title">
+        Edit book proprieties :
+      </div>
+      <div class="edit-book-name">
+        <span>Title :</span> <input type="text" [(ngModel)]="book && book.title" name="title">
+      </div>
+      <div class="edit-book-author">
+        <span>Author :</span> <input type="text" [(ngModel)]="book && book.author" name="author">
+      </div>
+      <div class="edit-book-description">
+        <span>Description :</span> <textarea [(ngModel)]="book && book.description" name="description"></textarea>
+      </div>
+      <div [ngStyle]="{'flex-direction': 'row'}">
+        <button (click)="cancelEditMode()">Cancel</button>
+        <button (click)="saveChanges()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

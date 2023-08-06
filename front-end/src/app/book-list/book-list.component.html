@@ -1,0 +1,67 @@
+<div class="app-title">Personal Library</div>
+<div class="books-container">
+  <div class="button-container">
+    <div class="add-book">
+      <span class="material-icons" (click)="addBook()">
+      add_circle_outline
+      </span>
+    </div>
+    <div class="search-container">
+      <input
+        *ngIf="!displaySearchButton"
+        [(ngModel)]="searchQuery"
+        (keyup)="searchBooks()"
+        class="search-bar"
+      >
+      <span
+        *ngIf="!displaySearchButton"
+        (click)="closeSearch()"
+        class="material-icons close-button"
+      >
+        close
+      </span>
+      <span
+        *ngIf="displaySearchButton"
+        (click)="openSearch()"
+        class="material-icons"
+      >
+        search
+      </span>
+    </div>
+    <div class="sort-container">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <span class="material-icons swap-icon">swap_vert</span>
+        </button>
+        <div class="dropdown-content">
+          <a (click)="sortBooksByDate()" [class.active]="sortOption === 'date'">Sort by date</a>
+          <a (click)="sortBooksByTitle()" [class.active]="sortOption === 'title'">Sort by name</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="books.length === 0" class="empty-book-element">
+    No book available, please add a book
+  </div>
+  <ng-container *ngIf="filteredBooks.length === 0 && books.length > 0; else bookList">
+    <div class="empty-book-element">
+      No books matched your search
+    </div>
+  </ng-container>
+  <ng-template #bookList>
+    <div
+      *ngFor="let book of filteredBooks"
+      class="book-element"
+    >
+      <div class="book-last-modification-date">
+        Last date modification: {{ book.last_modification_date}}
+      </div>
+      <h2 class="book-title" [routerLink]="'book/' + book.id">
+        {{ book.title }}
+      </h2>
+      <div class="book-author">
+        {{ book.author }}
+      </div>
+    </div>
+  </ng-template>
+</div>
