@@ -18,9 +18,6 @@ start by cloning the project from GitHub:
 
 First, make sure you have Python installed on your system. You can download the latest version of Python from the official website: https://www.python.org/downloads/
 
-Install Node.js:
-
-First, make sure you have Node.js installed on your system. You can download the latest version of Node.js from the official website: https://nodejs.org/
 
 Change to the frontend directory:
 
@@ -46,6 +43,11 @@ Run the Backend Server:
 Once the server is up and running, you can access the backend API at http://localhost:8000/. 
 
 ## How to Run the Frontend:
+
+Install Node.js:
+
+First, make sure you have Node.js installed on your system. You can download the latest version of Node.js from the official website: https://nodejs.org/
+
 To run the frontend of the Book Manager Web Application, follow these steps:
 
 Change to the frontend directory:
