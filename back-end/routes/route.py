@@ -11,7 +11,7 @@ router = APIRouter()
 
 
 @router.get("/")
-def get_books() -> List[Book]:
+def get_books():
     books = list_serial(collection_name.find())
     return books
 
@@ -25,14 +25,14 @@ def get_book(id: str) -> Book:
 
 @router.post("/book/")
 def post_books():
-  last_modification_date: datetime = datetime.utcnow()
-  new_book: Book = Book(
-    title = "New Book",
-    author = "New author",
-    description = "Edit to enter description",
-    last_modification_date = last_modification_date
-  ).dict(by_alias=True)
-  collection_name.insert_one(dict(new_book))
+    last_modification_date: datetime = datetime.utcnow()
+    new_book = Book(
+        title="New Book",
+        author="New author",
+        description="Edit to enter description",
+        last_modification_date=last_modification_date
+    ).dict(by_alias=True)
+    collection_name.insert_one(new_book)
 
 @router.patch("/book/{id}")
 def patch_book(id: str, book: Book):
