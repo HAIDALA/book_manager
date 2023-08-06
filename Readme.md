@@ -25,7 +25,7 @@ Change to the frontend directory:
 
 Install FastAPI:
 
-```pip install fastapi````
+```pip install fastapi```
 
 Install Uvicorn:
 
