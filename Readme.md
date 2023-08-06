@@ -65,5 +65,11 @@ Start the development server:
 Once the server is up and running, you can access the application in your web browser at http://localhost:4200/.
 
 
+## Technologies : 
+
+REST API with Fastapi, angular
+
+
+
 
 
