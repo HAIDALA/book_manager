@@ -36,6 +36,8 @@ After the Docker containers are up and running, you can access the Book Manager 
 http://localhost:4200/
 
 
+# Run the App without docker
+
 ## How to Run the Backend:
 
 First, make sure you have Python installed on your system. You can download the latest version of Python from the official website: https://www.python.org/downloads/
