@@ -14,6 +14,28 @@ start by cloning the project from GitHub:
 
 ```git clone https://github.com/HAIDALA/book_manager.git```
 
+## How to Run the app using docker (Best choice if you know docker!):
+
+Prerequisites:
+- Docker: https://docs.docker.com/get-docker/
+- Docker Compose: https://docs.docker.com/compose/install/
+
+### Build the frontend Docker image
+cd book_manager/front-end
+docker build -t frontend-image .
+
+### Build the backend Docker image
+cd ../back-end
+docker build -t backend-image .
+
+### Start the application using Docker Compose
+docker-compose up
+
+### Access the Application:
+After the Docker containers are up and running, you can access the Book Manager Web Application by visiting:
+http://localhost:4200/
+
+
 ## How to Run the Backend:
 
 First, make sure you have Python installed on your system. You can download the latest version of Python from the official website: https://www.python.org/downloads/
